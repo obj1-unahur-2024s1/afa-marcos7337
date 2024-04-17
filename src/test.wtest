@@ -1,0 +1,35 @@
+import example.*
+test "cálculo de ganancia neta" {
+	messi.setViaticos(100000)
+	afa.setEstadio(bombonera)
+	afa.setJugador(messi)
+	
+	assert.equals(479700000,afa.gananciaNeta())
+}
+
+test "realizar partido para messi en la bombonera" {
+	messi.setViaticos(100000)
+	afa.setEstadio(bombonera)
+	afa.setJugador(messi)
+	
+	assert.equals(100000000,afa.dinero())
+	assert.equals(1000000,messi.dinero())
+	
+	afa.realizarPartido()
+	assert.equals(579700000,afa.dinero())
+	assert.equals(1100000,messi.dinero())
+}
+
+test "realizar partido para mbappe en el monumental"{
+	mbappe.setViaticos(50000)
+	afa.setEstadio(monumental)
+	afa.setJugador(mbappe)
+	afa.inflacion(20)
+	
+	assert.equals(100000000,afa.dinero())
+	assert.equals(1000000,mbappe.dinero())
+	
+	afa.realizarPartido()
+	assert.equals(400840000,afa.dinero())
+	assert.equals(1050000,mbappe.dinero())
+}
